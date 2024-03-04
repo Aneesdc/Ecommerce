@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,13 @@ Route::prefix('admin')->group(function () {
     Route::get('subcategory-add',[SubCategoryController::class,'subcategory_add'])->name('subcategory-add');
     Route::post('subcategory-request',[SubCategoryController::class,'subcategory_request'])->name('subcategory-request');
     Route::get('subcategory-delete/{id}',[SubCategoryController::class, 'subcategory_delete'])->name('subcategory-delete');
+    Route::get('category-update/{id}',[SubCategoryController::class,'update'])->name('category-update');
+    Route::post("subcategory-update",[SubCategoryController::class, 'subcategory_update'])->name('subcategory-update');
+
+    // product routes
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('product','product')->name('admin.test');
+        Route::get('proudctadd','productadd');
+        Route::post('productadd-request', 'productadd_request');
+    });
 });

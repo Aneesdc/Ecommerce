@@ -1,6 +1,5 @@
 @extends('layouts/mastertemplet')
 @section('content')
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -44,14 +43,14 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1 ?>
-                                @foreach($subcategory as $subcat)
+                                @foreach($product as $prod)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td>{{$subcat->sub_category_name}}</td>
-                                    <td>{{$subcat->c_name}}</td>
-                                    <td>{{$subcat->subcategory_product_count}}</td>
-                                    <td><a href="{{url ('admin/subcategory-delete/'.$subcat->id)}}" class="fa fa-trash text-red"></a> |
-                                        <a href="{{url ('admin/category-update/'.$subcat->id)}}" class="fa fa-edit text-success"></a>
+                                    <td>{{$prod->sub_category_name}}</td>
+                                    <td>{{$prod->c_name}}</td>
+                                    <td>{{$prod->subcategory_product_count}}</td>
+                                    <td><a href="{{url ('admin/product-delete/'.$prod->id)}}" class="fa fa-trash text-red"></a> |
+                                        <a href="{{url ('admin/product-update/'.$prod->id)}}" class="fa fa-edit text-success"></a>
                                     </td>
                                 </tr>
                                 @endforeach

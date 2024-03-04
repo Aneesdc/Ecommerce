@@ -60,6 +60,15 @@
                      </a>
                  </li>
 
+                 <li class="nav-item menu-open">
+                     <a href="{{url ('admin/product')}}" class="nav-link">
+                         <i class="nav-icon fas fa-tachometer-alt"></i>
+                         <p>
+                             Products
+                         </p>
+                     </a>
+                 </li>
+
              </ul>
          </nav>
          <!-- /.sidebar-menu -->

@@ -84,4 +84,23 @@ class SubCategoryController extends Controller
             }
         return redirect()->back()->with(["success" => "Sub category deleted successfully!"]);
     }
+
+    public function update(Request $request)
+    {
+        $category = Category::orderbydesc('id')->get();
+        $sub_category = Sub_category::findOrFail($request->id);
+        return view('subcategory/update', compact('category','sub_category'));
+    }
+
+
+    public function subcategory_update(Request $request)
+    {
+        $sub_cat = Sub_category::where($request->id)->first(); 
+        $sub_cat->sub_category_name = $request->sub_category_name;
+        $sub_cat->subcategory_product_count = $request->subcategory_product_count;
+        $sub_cat->category_id = $request->category_id;
+        $sub_cat->slug = str_replace(' ','-', $request->sub_category_name);
+        $sub_cat->save();
+        return redirect()->back()->with(["success" => 'Sub Category hase been updated successfull!']);
+    }
 }
